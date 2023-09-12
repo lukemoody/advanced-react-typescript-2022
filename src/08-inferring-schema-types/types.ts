@@ -1,15 +1,16 @@
-import { z } from 'zod';
-import {
-  extraIngredientSchema,
-  extraIngredientsSchema,
-  pizzaSchema,
-} from './schemas';
+export type Pizza = {
+  name: string;
+  ingredients: string[];
+  price: number;
+  extras: string[];
+};
 
-export type Pizza = z.infer<typeof pizzaSchema>;
+export type ExtraIngredients = Record<string, ExtraIngredient>;
 
-export type ExtraIngredients = z.infer<typeof extraIngredientsSchema>;
-
-export type ExtraIngredient = z.infer<typeof extraIngredientSchema>;
+export type ExtraIngredient = {
+  name: string;
+  price: number;
+};
 
 export type PizzaOnOrder = {
   name: string;

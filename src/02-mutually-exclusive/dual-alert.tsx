@@ -11,16 +11,9 @@ type Variant =
   | 'success'
   | 'warning';
 
-type Props = (
-  | {
-      message: string;
-      messageId?: never;
-    }
-  | {
-      message?: never;
-      messageId: string;
-    }
-) & {
+type Props = {
+  message?: string;
+  messageId?: string;
   variant?: Variant;
 };
 

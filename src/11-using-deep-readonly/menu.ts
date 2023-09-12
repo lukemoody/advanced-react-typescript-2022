@@ -1,11 +1,6 @@
-import {
-  DeepReadonly,
-  ExtraIngredient,
-  ExtraIngredients,
-  Pizza,
-} from './types';
+import { ExtraIngredient, ExtraIngredients, Pizza } from './types';
 
-export const pizzas: DeepReadonly<Pizza[]> = [
+export const pizzas: Pizza[] = [
   {
     name: 'Pizza Margherita',
     ingredients: ['tomato sauce', 'mozzarella', 'basil'],

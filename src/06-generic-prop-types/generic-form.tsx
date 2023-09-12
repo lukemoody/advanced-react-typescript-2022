@@ -1,17 +1,13 @@
 import { FC, useState } from 'react';
 import { LabeledInput } from '../components';
 
-type Props<TValues> = {
+type Props = {
   header: string;
-  initialValues: TValues;
-  onSubmit: (values: TValues) => void;
+  initialValues: any;
+  onSubmit: (values: any) => void;
 };
 
-export function GenericForm<TValues extends Record<string, any>>({
-  header,
-  initialValues,
-  onSubmit,
-}: Props<TValues>) {
+export const GenericForm: FC<Props> = ({ header, initialValues, onSubmit }) => {
   const [values, setValues] = useState(initialValues);
 
   return (
@@ -32,4 +28,4 @@ export function GenericForm<TValues extends Record<string, any>>({
       </button>
     </form>
   );
-}
+};

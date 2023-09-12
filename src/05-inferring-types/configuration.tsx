@@ -1,14 +1,10 @@
 import { FC } from 'react';
 import { LabeledInput } from '../components';
 
-function getConfigItem<
-  TSection extends keyof typeof config,
-  TItem extends keyof typeof config[TSection]
->(section: TSection, item: TItem) {
-  const config = {
+function getConfigItem(section: string, item: string) {
+  const config: any = {
     user: {
       firstName: 'John',
-      lastName: 'Doe',
       birthDate: new Date(1990, 6, 10),
     },
     address: {
@@ -24,9 +20,9 @@ function getConfigItem<
 export const Configuration: FC = () => {
   const firstName = getConfigItem('user', 'firstName');
   const lastName = getConfigItem('user', 'lastName');
-  const birthDate = getConfigItem('user', 'birthDate').toLocaleDateString();
+  const birthDate = getConfigItem('user', 'birthDate');
 
-  // const employer = getConfigItem('employer', 'name');
+  const employer = getConfigItem('employer', 'name');
 
   const street = getConfigItem('address', 'street');
   const houseNumber = getConfigItem('address', 'houseNumber');
