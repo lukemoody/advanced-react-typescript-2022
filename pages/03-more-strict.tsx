@@ -1,5 +1,5 @@
-import type { NextPage } from 'next';
-import { PizzaShop } from '../src/03-more-strict/pizza-shop';
+import type { NextPage } from "next";
+import { PizzaShop } from "../src/03-more-strict/pizza-shop";
 
 const MoreStrict: NextPage = () => {
   return (

@@ -27,6 +27,10 @@ type Props = {
 
 // Additing ReactElement will make sure errors are thrown if the return is missing
 // for example
+// ..
+// FC  = Functional COmponent. Usig it has some downsides:
+// FC defination doesnt allow children
+// Cant make Prop definition Generic
 export const Alert: FC<Props> = ({ messageId, variant }) => {
   const { formatMessage } = useIntl();
 
