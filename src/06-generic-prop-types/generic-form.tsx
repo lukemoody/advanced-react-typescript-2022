@@ -1,13 +1,27 @@
-import { FC, useState } from 'react';
-import { LabeledInput } from '../components';
+import { FC, ReactElement, useState } from "react";
+import { LabeledInput } from "../components";
 
-type Props = {
+// type Props = {
+//   header: string;
+//   initialValues: any;
+//   onSubmit: (values: any) => void;
+// };
+
+type Props<TData> = {
   header: string;
-  initialValues: any;
-  onSubmit: (values: any) => void;
+  initialValues: TData; // we dont know what these could be
+  onSubmit: (values: TData) => void; // we dont know what these could be
 };
 
-export const GenericForm: FC<Props> = ({ header, initialValues, onSubmit }) => {
+// export const GenericForm: FC<Props> = ({ header, initialValues, onSubmit }) => {
+
+// Error: Argument of type 'TData' is not assignable to parameter of type '{}'.
+// Extend TData from object {}, but this doesnt work for value.
+// export function GenericForm<TData extends {}>({
+// Hovering over value it actually gives the correct type options
+export function GenericForm<
+  TData extends Record<string, string | number | readonly string[] | undefined>
+>({ header, initialValues, onSubmit }: Props<TData>): ReactElement {
   const [values, setValues] = useState(initialValues);
 
   return (
@@ -28,4 +42,4 @@ export const GenericForm: FC<Props> = ({ header, initialValues, onSubmit }) => {
       </button>
     </form>
   );
-};
+}

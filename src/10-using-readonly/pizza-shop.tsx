@@ -1,10 +1,10 @@
-import type { PizzaOnOrder } from './types';
+import type { PizzaOnOrder } from "./types";
 
-import { FC, useMemo, useState } from 'react';
-import { useIntl } from 'react-intl';
-import { pizzas } from './menu';
-import { OrderedPizza } from './ordered-pizza';
-import { PizzaOnMenu } from './pizza-on-menu';
+import { FC, useMemo, useState } from "react";
+import { useIntl } from "react-intl";
+import { pizzas } from "./menu";
+import { OrderedPizza } from "./ordered-pizza";
+import { PizzaOnMenu } from "./pizza-on-menu";
 
 export const PizzaShop: FC = () => {
   const { formatNumber } = useIntl();
@@ -13,15 +13,15 @@ export const PizzaShop: FC = () => {
 
   const onPlaceOrder = () => {
     const extrasForAEuro = order.flatMap((pizza) =>
-      pizza.extraIngredients.filter((extra) => (extra.price = 1))
+      pizza.extraIngredients.filter((extra) => extra.price === 1)
     );
-    console.log('Extras for a Euro', extrasForAEuro);
+    console.log("Extras for a Euro", extrasForAEuro);
 
     pizzas.push({
       name: `New Pizza ${new Date().toLocaleTimeString()}`,
       price: 10,
-      extras: ['cheese'],
-      ingredients: ['tomato sauce'],
+      extras: ["cheese"],
+      ingredients: ["tomato sauce"],
     });
 
     if (pizzas[0]) {
@@ -55,8 +55,8 @@ export const PizzaShop: FC = () => {
               <div className="ms-3">Total amount: </div>
               <div className="me-3">
                 {formatNumber(totalPrice, {
-                  style: 'currency',
-                  currency: 'EUR',
+                  style: "currency",
+                  currency: "EUR",
                 })}
               </div>
             </div>

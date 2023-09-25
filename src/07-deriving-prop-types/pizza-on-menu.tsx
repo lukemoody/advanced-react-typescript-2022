@@ -1,9 +1,9 @@
-import type { ExtraIngredient, Pizza, PizzaOnOrder } from './types';
+import type { ExtraIngredient, Pizza, PizzaOnOrder } from "./types";
 
-import { FC, useState } from 'react';
+import { FC, useState } from "react";
 
-import { useIntl } from 'react-intl';
-import { LabeledCheckbox } from '../components';
+import { useIntl } from "react-intl";
+import { LabeledCheckbox } from "../components";
 
 type Props = {
   pizza: Pizza;
@@ -40,6 +40,7 @@ export const PizzaOnMenu: FC<Props> = ({
           {pizza.extras.map((extra) => (
             <LabeledCheckbox
               key={extra}
+              disabled={extra === "mushrooms"} // This only applies disabled to mushrooms
               checked={extras.includes(extra)}
               onChange={() => {
                 setExtras((extras) => {
